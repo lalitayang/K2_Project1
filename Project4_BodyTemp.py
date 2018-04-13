@@ -9,6 +9,7 @@ Created on Wed Apr 11 22:34:10 2018
 import numpy as np
 import scipy as sp
 import pandas as pd
+from scipy.stats import ttest_1samp
 
 #Read in data from URL using pandas
 data = pd.read_table('https://ww2.amstat.org/publications/jse/datasets/normtemp.dat.txt', 
@@ -29,10 +30,6 @@ t = (temp_mean - mu)/(s/np.sqrt(n))
 
 print('sample mean: ', temp_mean)
 print('t-statistic: ', t)
-
-
-#use scipy
-from scipy.stats import ttest_1samp
 
 print('sample mean: ', temp_mean)
 print('t statistic: ',  ttest_1samp(data['body_temp'], mu ))
